@@ -6,20 +6,11 @@ import random
 import ps2_visualize
 import pylab
 
-##################
-## Comment/uncomment the relevant lines, depending on which version of Python you have
-##################
-
-# For Python 3.5:
-#from ps2_verify_movement35 import testRobotMovement
-# If you get a "Bad magic number" ImportError, you are not using Python 3.5 
-
 # For Python 3.6:
 from ps2_verify_movement38 import testRobotMovement
 # If you get a "Bad magic number" ImportError, you are not using Python 3.6
 
 
-# === Provided class Position
 class Position(object):
     """
     A Position represents a location in a two-dimensional room.
@@ -64,7 +55,6 @@ class Position(object):
         return "(%0.2f, %0.2f)" % (self.x, self.y)
 
 
-# === Problem 1
 class RectangularRoom(object):
     """
     A RectangularRoom represents a rectangular region containing clean or dirty
@@ -156,7 +146,7 @@ class RectangularRoom(object):
         else:
             return False
 
-# === Problem 2
+        
 class Robot(object):
     """
     Represents a robot cleaning a particular room.
@@ -225,7 +215,6 @@ class Robot(object):
         raise NotImplementedError # don't change this!
 
 
-# === Problem 3
 class StandardRobot(Robot):
     """
     A StandardRobot is a Robot with the standard movement strategy.
@@ -250,11 +239,10 @@ class StandardRobot(Robot):
         else:
             self.direction=random.randint(0,360)
 
-# Uncomment this line to see your implementation of StandardRobot in action!
+            
 ##testRobotMovement(StandardRobot, RectangularRoom)
 
 
-# === Problem 4
 def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
                   robot_type):
     """
@@ -288,11 +276,9 @@ def runSimulation(num_robots, speed, width, height, min_coverage, num_trials,
     return float(sum(trials))/float(len(trials))
             
 
-# Uncomment this line to see how much your simulation takes on average
 ##print(runSimulation(1, 1.0, 10, 10, 0.75, 30, StandardRobot))
 
 
-# === Problem 5
 class RandomWalkRobot(Robot):
     """
     A RandomWalkRobot is a robot with the "random walk" movement strategy: it
@@ -354,22 +340,3 @@ def showPlot2(title, x_label, y_label):
     pylab.xlabel(x_label)
     pylab.ylabel(y_label)
     pylab.show()
-    
-
-# === Problem 6
-# NOTE: If you are running the simulation, you will have to close it 
-# before the plot will show up.
-
-#
-# 1) Write a function call to showPlot1 that generates an appropriately-labeled
-#     plot.
-#
-#       (... your call here ...)
-#
-
-#
-# 2) Write a function call to showPlot2 that generates an appropriately-labeled
-#     plot.
-#
-#       (... your call here ...)
-#
